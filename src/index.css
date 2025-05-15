@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 60% 98%;
+    --foreground: 224 71% 4%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 4%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 4%;
+    
+    --primary: 242 83% 54%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 246 59% 94%;
+    --secondary-foreground: 242 83% 34%;
+    
+    --muted: 222 60% 97%;
+    --muted-foreground: 223 24% 55%;
+    
+    --accent: 256 91% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 242 83% 54%;
+    
+    --success: 144 85% 53%;
+    --warning: 38 92% 60%;
+    --error: 0 84% 60%;
+    
+    --radius: 0.75rem;
+  }
+ 
+  .dark {
+    --background: 210 45% 5%;
+    --foreground: 220 10% 97.2%;
+    
+    --card: 210 40% 8%;
+    --card-foreground: 220 10% 97.2%;
+    
+    --popover: 210 40% 8%;
+    --popover-foreground: 220 10% 97.2%;
+    
+    --primary: 242 83% 54%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 246 35% 26%;
+    --secondary-foreground: 246 59% 94%;
+    
+    --muted: 210 40% 15%;
+    --muted-foreground: 223 24% 75%;
+    
+    --accent: 256 91% 65%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 210 40% 15%;
+    --input: 210 40% 15%;
+    --ring: 242 83% 54%;
+    
+    --success: 144 85% 53%;
+    --warning: 38 92% 60%;
+    --error: 0 84% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Glassmorphism Effects */
+@layer components {
+  .glass-card {
+    @apply bg-white/60 dark:bg-white/10 backdrop-blur-md;
+  }
+  
+  .glass-panel {
+    @apply bg-white/80 dark:bg-white/10 backdrop-blur-lg border border-white/20 shadow-xl;
+  }
+  
+  .glass-button {
+    @apply bg-white/80 hover:bg-white/90 dark:bg-white/10 dark:hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all;
+  }
+
+  .glass-bottom-bar {
+    @apply fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-black/60 backdrop-blur-lg border-t border-white/20 dark:border-white/10 shadow-lg;
+  }
+}
+
+/* Animation Classes */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .animate-flash {
+    animation: flash 0.5s ease-out;
+  }
+  
+  @keyframes flash {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  /* Hide scrollbars but maintain functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
